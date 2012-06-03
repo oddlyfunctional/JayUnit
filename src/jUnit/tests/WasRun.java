@@ -32,6 +32,10 @@ public class WasRun extends TestCase {
     }
     
     public void testBrokenMethod() throws Exception {
+        throw new Exception("Message");
+    }
+    
+    public void testBrokenMethodWithoutMessage() throws Exception {
         throw new Exception();
     }
 

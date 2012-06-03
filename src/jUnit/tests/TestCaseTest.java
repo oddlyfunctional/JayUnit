@@ -4,10 +4,7 @@
  */
 package jUnit.tests;
 
-import jUnit.SetUpError;
-import jUnit.TestCase;
-import jUnit.TestResult;
-import jUnit.TestSuite;
+import jUnit.*;
 
 /**
  *
@@ -25,26 +22,32 @@ public class TestCaseTest extends TestCase {
     public void testTemplateMethod() {
         WasRun test = new WasRun("testMethod");
         test.run(result);
-        assert test.log().equals("setUp testMethod tearDown");
+        assertEquals("setUp testMethod tearDown", test.log());
     }
 
     public void testResult() {
         WasRun test = new WasRun("testMethod");
         test.run(result);
-        assert "1 run, 0 failed".equals(result.summary());
+        assertEquals("1 run, 0 failed", result.summary());
     }
 
     public void testFailedResult() {
         WasRun test = new WasRun("testBrokenMethod");
         test.run(result);
-        assert "1 run, 1 failed\njUnit.tests.WasRun.testBrokenMethod - java.lang.Exception".equals(result.summary());
+        assertEquals("1 run, 1 failed\njUnit.tests.WasRun.testBrokenMethod - Message", result.summary());
+    }
+
+    public void testFailedWithoutMessageResult() {
+        WasRun test = new WasRun("testBrokenMethodWithoutMessage");
+        test.run(result);
+        assertEquals("1 run, 1 failed\njUnit.tests.WasRun.testBrokenMethodWithoutMessage - java.lang.Exception",result.summary());
     }
 
     public void testFailedResultFormatting() {
         assert result.summary().equals("0 run, 0 failed");
         result.testStarted();
         result.testFailed();
-        assert result.summary().equals("1 run, 1 failed");
+        assertEquals("1 run, 1 failed", result.summary());
     }
 
     public void testErrorOnSetUp() {
@@ -57,6 +60,7 @@ public class TestCaseTest extends TestCase {
 
         try {
             test.run(result);
+            fail();
         } catch (SetUpError e) {
         }
     }
@@ -66,13 +70,69 @@ public class TestCaseTest extends TestCase {
         suite.add(new WasRun("testMethod"));
         suite.add(new WasRun("testBrokenMethod"));
         suite.run(result);
-        assert "2 run, 1 failed\njUnit.tests.WasRun.testBrokenMethod - java.lang.Exception".equals(result.summary());
+        assertEquals("2 run, 1 failed\njUnit.tests.WasRun.testBrokenMethod - Message", result.summary());
     }
-    
+
     public void testAutoSuite() throws Exception {
         TestSuite suite = new TestSuite(WasRun.class);
         suite.run(result);
-        assert "2 run, 1 failed\njUnit.tests.WasRun.testBrokenMethod - java.lang.Exception".equals(result.summary());
+        assertEquals("3 run, 2 failed\n"
+                + "jUnit.tests.WasRun.testBrokenMethod - Message\n"
+                + "jUnit.tests.WasRun.testBrokenMethodWithoutMessage - java.lang.Exception", result.summary());
+    }
+
+    public void testAssertTrue() {
+        assert assertTrue(true);
+    }
+
+    public void testAssertTrueFailed() {
+        try {
+            assertTrue(false);
+            fail();
+        } catch (AssertionError e) {
+            assertTrue(e.getMessage().equals("Expected to be true"));
+        }
+    }
+
+    public void testAssertFalse() {
+        assert assertFalse(false);
+    }
+
+    public void testAssertFalseFailed() {
+        try {
+            assertFalse(true);
+            fail();
+        } catch (AssertionError e) {
+        }
+    }
+
+    public void testAssertEquals() {
+        assertTrue(assertEquals(1, 1));
+    }
+
+    public void testAssertEqualsFailed() {
+        try {
+            assertEquals(1, 2);
+            fail();
+        } catch (AssertionError e) {
+            assertTrue(e.getMessage().equals("Expected 1 but it was 2"));
+        }
+    }
+
+    public void testFail() throws Exception {
+        try {
+            fail();
+            throw new Exception();
+        } catch (Failure e) {
+        }
+    }
+
+    public void testFailMessage() throws Exception {
+        try {
+            fail("Message");
+            throw new Exception();
+        } catch (Failure e) {
+        }
     }
 
     public static void main(String[] args) throws Exception {
