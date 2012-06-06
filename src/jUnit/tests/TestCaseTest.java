@@ -5,6 +5,8 @@
 package jUnit.tests;
 
 import jUnit.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -80,6 +82,13 @@ public class TestCaseTest extends TestCase {
                 + "jUnit.tests.WasRun.testBrokenMethod - Message\n"
                 + "jUnit.tests.WasRun.testBrokenMethodWithoutMessage - java.lang.Exception", result.summary());
     }
+    
+    public void testRunTestSuiteFor() throws Exception {
+        result = TestSuite.runTestSuiteFor(WasRun.class);
+        assertEquals("3 run, 2 failed\n"
+                + "jUnit.tests.WasRun.testBrokenMethod - Message\n"
+                + "jUnit.tests.WasRun.testBrokenMethodWithoutMessage - java.lang.Exception", result.summary());
+    }
 
     public void testAssertTrue() {
         assert assertTrue(true);
@@ -90,7 +99,7 @@ public class TestCaseTest extends TestCase {
             assertTrue(false);
             fail();
         } catch (AssertionError e) {
-            assertTrue(e.getMessage().equals("Expected to be true"));
+            assertEquals("Expected <true,Boolean> but it was <false,Boolean>", e.getMessage());
         }
     }
 
@@ -106,6 +115,18 @@ public class TestCaseTest extends TestCase {
         }
     }
 
+    public void testAssertContains() {
+        List list = new ArrayList();
+        list.add(1);
+        assertTrue(assertContains(list, 1));
+    }
+    
+    public void testAssertDoNotContain() {
+        List list = new ArrayList();
+        list.add(1);
+        assertTrue(assertDoNotContain(list, 2));
+    }
+    
     public void testAssertEquals() {
         assertTrue(assertEquals(1, 1));
     }
@@ -115,7 +136,41 @@ public class TestCaseTest extends TestCase {
             assertEquals(1, 2);
             fail();
         } catch (AssertionError e) {
-            assertTrue(e.getMessage().equals("Expected 1 but it was 2"));
+            assertEquals("Expected <2,Integer> but it was <1,Integer>", e.getMessage());
+        }
+    }
+    
+    public void assertNotEquals() {
+        assertTrue(assertNotEquals(1, 2));
+    }
+
+    public void testAssertNotEqualsFailed() {
+        try {
+            assertNotEquals(1, 1);
+            fail();
+        } catch (AssertionError e) {
+            assertEquals("Expected not to be <1,Integer> but it was <1,Integer>", e.getMessage());
+        }
+    }
+    
+    public void testAssertArrayEquals() {
+        List list1 = new ArrayList();
+        list1.add(1);
+        List list2 = new ArrayList();
+        list2.add(1);
+        assertArrayEquals(list1, list2);
+    }
+    
+    public void testAssertArrayEqualsFailed() {
+        List list1 = new ArrayList();
+        list1.add(1);
+        List list2 = new ArrayList();
+        list2.add(2);
+        try {
+            assertArrayEquals(list1, list2);
+            fail();
+        } catch(AssertionError e) {
+            assertEquals(e.getMessage(), "Expected <[2],ArrayList> but it was <[1],ArrayList>");
         }
     }
 

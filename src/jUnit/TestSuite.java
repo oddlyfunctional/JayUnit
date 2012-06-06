@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author marcos
  */
-public class TestSuite implements TestComponent {
+public class TestSuite extends TestComponent {
     
     private ArrayList<TestComponent> tests;
 
@@ -38,6 +38,13 @@ public class TestSuite implements TestComponent {
         for (TestComponent test : tests) {
             test.run(result);
         }
+    }
+    
+    public static TestResult runTestSuiteFor(Class testCaseClass) throws IllegalArgumentException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
+        TestSuite suite = new TestSuite(testCaseClass);
+        TestResult result = new TestResult();
+        suite.run(result);
+        return result;
     }
     
 }

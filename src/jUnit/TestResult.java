@@ -40,4 +40,12 @@ public class TestResult {
         }
         return summary;
     }
+
+    public int getErrorCount() {
+        return errorCount;
+    }
+
+    public int getRunCount() {
+        return runCount;
+    }
 }
