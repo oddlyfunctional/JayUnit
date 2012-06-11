@@ -83,6 +83,12 @@ public class TestCaseTest extends TestCase {
                 + "jUnit.tests.WasRun.testBrokenMethodWithoutMessage - java.lang.Exception", result.summary());
     }
     
+    public void testSuiteCallbacks() throws Exception {
+        WasRunSuite suite = new WasRunSuite(WasRun.class);
+        suite.run(result);
+        assertEquals(suite.log(), "beforeRun afterRun beforeRun afterRun beforeRun afterRun ");
+    }
+    
     public void testRunTestSuiteFor() throws Exception {
         result = TestSuite.runTestSuiteFor(WasRun.class);
         assertEquals("3 run, 2 failed\n"
