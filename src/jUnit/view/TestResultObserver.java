@@ -13,9 +13,16 @@ import jUnit.TestResult;
  */
 public class TestResultObserver extends javax.swing.JLabel implements Observer {
     
-    private TestResult result;    
+    private TestResult result;
+
+    public TestResultObserver() {
+    }
 
     public TestResultObserver(TestResult result) {
+        this.result = result;
+    }
+
+    public void setResult(TestResult result) {
         this.result = result;
     }
 
