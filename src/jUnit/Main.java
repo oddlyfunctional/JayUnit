@@ -1,19 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package jUnit;
 
 import jUnit.control.Controller;
 
-/**
- *
- * @author agir
- */
 public class Main {
 
     public static void main(String[] args) {
-        Controller.getInstance().runTests();
+        Controller.getInstance().runTests(FooTest.class);
     }
 }

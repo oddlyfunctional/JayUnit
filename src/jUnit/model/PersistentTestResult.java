@@ -1,15 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jUnit.model;
 
 import jUnit.framework.TestResult;
 
-/**
- *
- * @author marcos
- */
 public class PersistentTestResult {
 
     private int runCount;
@@ -29,7 +21,7 @@ public class PersistentTestResult {
     public int getErrorCount() {
         return errorCount;
     }
-    
+
     public long getExecutionTimeInNanoSecs() {
         return executionTimeInNanoSecs;
     }
@@ -42,9 +34,9 @@ public class PersistentTestResult {
     public boolean equals(Object obj) {
         if (obj instanceof PersistentTestResult) {
             PersistentTestResult persistentResult = (PersistentTestResult) obj;
-            return persistentResult.getErrorCount() == this.getErrorCount() &&
-                    persistentResult.getRunCount() == this.getRunCount() &&
-                    persistentResult.getExecutionTimeInNanoSecs() == this.getExecutionTimeInNanoSecs();
+            return persistentResult.getErrorCount() == this.getErrorCount()
+                    && persistentResult.getRunCount() == this.getRunCount()
+                    && persistentResult.getExecutionTimeInNanoSecs() == this.getExecutionTimeInNanoSecs();
         }
         return false;
     }

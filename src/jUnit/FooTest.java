@@ -1,17 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package jUnit;
 
 import jUnit.framework.TestCase;
 import java.util.Random;
 
-/**
- *
- * @author marcos
- */
 public class FooTest extends TestCase {
 
     private final int MAX_RUN_TIME = 100;
@@ -33,5 +24,4 @@ public class FooTest extends TestCase {
     private int generateRandomNumber() {
         return new Random().nextInt(MAX_RUN_TIME);
     }
-
 }

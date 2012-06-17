@@ -1,24 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jUnit.tests;
 
-import jUnit.Command;
 import jUnit.framework.TestCase;
 import jUnit.framework.TestSuite;
 import jUnit.view.Button;
 
-/**
- *
- * @author marcos
- */
 public class ButtonTest extends TestCase {
 
     public ButtonTest(String name) {
         super(name);
     }
-    
+
     public void testDoClick() {
         WasRunCommand wasRun = new WasRunCommand();
         Button button = new Button(wasRun);

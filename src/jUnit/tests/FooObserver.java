@@ -1,18 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jUnit.tests;
 
 import jUnit.Observer;
 import jUnit.framework.TestResult;
 
-/**
- *
- * @author marcos
- */
 public class FooObserver implements Observer {
-    
+
     private TestResult result;
     private int runCount = 0;
     private int errorCount = 0;
@@ -33,5 +25,4 @@ public class FooObserver implements Observer {
     public int getRunCount() {
         return runCount;
     }
-    
 }

@@ -1,13 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jUnit.errors;
 
-/**
- *
- * @author marcos
- */
 public class Failure extends Error {
 
     public Failure(String message) {
@@ -16,5 +8,4 @@ public class Failure extends Error {
 
     public Failure() {
     }
-    
 }

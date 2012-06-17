@@ -1,16 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jUnit.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author marcos
- */
 public class PersistentTestResultDAO {
 
     private static PersistentTestResultDAO instance;
@@ -30,7 +22,7 @@ public class PersistentTestResultDAO {
     public void insert(PersistentTestResult result) {
         results.add(result);
     }
-    
+
     public void delete(PersistentTestResult result) {
         results.remove(result);
     }

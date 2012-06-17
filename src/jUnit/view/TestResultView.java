@@ -1,17 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jUnit.view;
 
 import jUnit.ObservableTestResult;
 import jUnit.Observer;
 import jUnit.framework.TestResult;
 
-/**
- *
- * @author marcos
- */
 public class TestResultView extends javax.swing.JTextArea implements Observer {
 
     private TestResult result;
@@ -32,5 +24,4 @@ public class TestResultView extends javax.swing.JTextArea implements Observer {
     public void update() {
         setText(result.summary());
     }
-    
 }

@@ -8,7 +8,7 @@ import java.util.List;
 public class TestCase extends TestComponent {
 
     protected String name;
-    
+
     public TestCase(String name) {
         this.name = name;
     }
@@ -72,41 +72,41 @@ public class TestCase extends TestComponent {
         }
         return true;
     }
-    
+
     public boolean assertNotEquals(Object actualValue, Object expectation) {
         if (actualValue.equals(expectation)) {
             throw new AssertionError("Expected not to be <" + expectation + "," + expectation.getClass().getSimpleName() + "> but it was <" + actualValue + "," + expectation.getClass().getSimpleName() + ">");
         }
         return true;
     }
-    
+
     public boolean assertContains(List list, Object target) {
         if (!list.contains(target)) {
             throw new AssertionError("Expected <" + list + "," + list.getClass().getSimpleName() + "> to contain <" + target + "," + target.getClass().getSimpleName() + ">");
         }
         return true;
     }
-    
+
     public boolean assertDoNotContain(List list, Object target) {
         if (list.contains(target)) {
             throw new AssertionError("Expected <" + list + "," + list.getClass().getSimpleName() + "> not to contain <" + target + "," + target.getClass().getSimpleName() + ">");
         }
         return true;
     }
-    
+
     public boolean assertArrayEquals(List actualValue, List expectation) {
         AssertionError error = new AssertionError(equalityErrorMessage(expectation, actualValue));
         if (actualValue.size() != expectation.size()) {
             throw error;
         }
-        for(int i = 0; i < expectation.size(); i++) {
+        for (int i = 0; i < expectation.size(); i++) {
             if (!expectation.get(i).equals(actualValue.get(i))) {
                 throw error;
             }
         }
         return true;
     }
-    
+
     private String equalityErrorMessage(Object expectation, Object actualValue) {
         return "Expected <" + expectation + "," + expectation.getClass().getSimpleName() + "> but it was <" + actualValue + "," + expectation.getClass().getSimpleName() + ">";
     }

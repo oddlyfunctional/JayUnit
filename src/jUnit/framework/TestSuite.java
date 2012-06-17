@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jUnit.framework;
 
 import java.lang.reflect.InvocationTargetException;
@@ -9,12 +5,8 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author marcos
- */
 public class TestSuite extends TestComponent {
-    
+
     private List<TestComponent> tests;
 
     public TestSuite() {
@@ -30,7 +22,7 @@ public class TestSuite extends TestComponent {
             }
         }
     }
-    
+
     public void add(TestComponent testComponent) {
         tests.add(testComponent);
     }
@@ -42,15 +34,17 @@ public class TestSuite extends TestComponent {
             afterRun();
         }
     }
-    
-    protected void beforeRun() {}
-    protected void afterRun() {}
-    
+
+    protected void beforeRun() {
+    }
+
+    protected void afterRun() {
+    }
+
     public static TestResult runTestSuiteFor(Class testCaseClass) throws IllegalArgumentException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
         TestSuite suite = new TestSuite(testCaseClass);
         TestResult result = new TestResult();
         suite.run(result);
         return result;
     }
-    
 }

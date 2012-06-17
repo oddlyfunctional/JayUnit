@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jUnit.view;
 
 import jUnit.Command;
@@ -9,10 +5,6 @@ import jUnit.ObservableTestResult;
 import jUnit.PersistentTestDecorator;
 import jUnit.framework.TestSuite;
 
-/**
- *
- * @author marcos
- */
 public class RunTestsCommand implements Command {
 
     private TestResultView testResult;

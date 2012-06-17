@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jUnit.tests;
 
 import jUnit.framework.TestCase;
@@ -12,10 +8,6 @@ import jUnit.errors.SetUpError;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author marcos
- */
 public class TestCaseTest extends TestCase {
 
     private TestResult result;
@@ -46,7 +38,7 @@ public class TestCaseTest extends TestCase {
     public void testFailedWithoutMessageResult() {
         WasRun test = new WasRun("testBrokenMethodWithoutMessage");
         test.run(result);
-        assertEquals("1 run, 1 failed\njUnit.tests.WasRun.testBrokenMethodWithoutMessage - java.lang.Exception",result.summary());
+        assertEquals("1 run, 1 failed\njUnit.tests.WasRun.testBrokenMethodWithoutMessage - java.lang.Exception", result.summary());
     }
 
     public void testFailedResultFormatting() {
@@ -86,13 +78,13 @@ public class TestCaseTest extends TestCase {
                 + "jUnit.tests.WasRun.testBrokenMethod - Message\n"
                 + "jUnit.tests.WasRun.testBrokenMethodWithoutMessage - java.lang.Exception", result.summary());
     }
-    
+
     public void testSuiteCallbacks() throws Exception {
         WasRunSuite suite = new WasRunSuite(WasRun.class);
         suite.run(result);
         assertEquals(suite.log(), "beforeRun afterRun beforeRun afterRun beforeRun afterRun ");
     }
-    
+
     public void testRunTestSuiteFor() throws Exception {
         result = TestSuite.runTestSuiteFor(WasRun.class);
         assertEquals("3 run, 2 failed\n"
@@ -130,13 +122,13 @@ public class TestCaseTest extends TestCase {
         list.add(1);
         assertTrue(assertContains(list, 1));
     }
-    
+
     public void testAssertDoNotContain() {
         List list = new ArrayList();
         list.add(1);
         assertTrue(assertDoNotContain(list, 2));
     }
-    
+
     public void testAssertEquals() {
         assertTrue(assertEquals(1, 1));
     }
@@ -149,7 +141,7 @@ public class TestCaseTest extends TestCase {
             assertEquals("Expected <2,Integer> but it was <1,Integer>", e.getMessage());
         }
     }
-    
+
     public void assertNotEquals() {
         assertTrue(assertNotEquals(1, 2));
     }
@@ -162,7 +154,7 @@ public class TestCaseTest extends TestCase {
             assertEquals("Expected not to be <1,Integer> but it was <1,Integer>", e.getMessage());
         }
     }
-    
+
     public void testAssertArrayEquals() {
         List list1 = new ArrayList();
         list1.add(1);
@@ -170,7 +162,7 @@ public class TestCaseTest extends TestCase {
         list2.add(1);
         assertArrayEquals(list1, list2);
     }
-    
+
     public void testAssertArrayEqualsFailed() {
         List list1 = new ArrayList();
         list1.add(1);
@@ -179,7 +171,7 @@ public class TestCaseTest extends TestCase {
         try {
             assertArrayEquals(list1, list2);
             fail();
-        } catch(AssertionError e) {
+        } catch (AssertionError e) {
             assertEquals(e.getMessage(), "Expected <[2],ArrayList> but it was <[1],ArrayList>");
         }
     }

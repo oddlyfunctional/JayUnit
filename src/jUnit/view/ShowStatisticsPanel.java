@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jUnit.view;
 
 import jUnit.Command;
@@ -10,10 +6,6 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-/**
- *
- * @author marcos
- */
 public class ShowStatisticsPanel extends JPanel {
 
     private JTextArea statistics;
@@ -22,7 +14,9 @@ public class ShowStatisticsPanel extends JPanel {
     public ShowStatisticsPanel() {
         super();
         statistics = new JTextArea();
+        statistics.setText(Controller.getInstance().testsStatistics());
         showFollowTestsButton = new Button(new Command() {
+
             public void execute() {
                 Controller.getInstance().runTests();
             }

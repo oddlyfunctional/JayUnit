@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jUnit.view;
 
 import jUnit.Command;
@@ -10,10 +6,6 @@ import jUnit.framework.TestSuite;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
-/**
- *
- * @author marcos
- */
 public class FollowTestsPanel extends JPanel {
 
     private TestSuite suite;
@@ -28,6 +20,7 @@ public class FollowTestsPanel extends JPanel {
         runTestsButton = new Button(new RunTestsCommand(testResultView, suite));
         runTestsButton.setText("Executar testes");
         showStatisticsButton = new Button(new Command() {
+
             public void execute() {
                 Controller.getInstance().showStatistics();
             }

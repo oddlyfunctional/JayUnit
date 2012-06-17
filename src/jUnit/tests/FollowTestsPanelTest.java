@@ -1,17 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jUnit.tests;
 
 import jUnit.framework.TestCase;
 import jUnit.framework.TestSuite;
 import jUnit.view.FollowTestsPanel;
 
-/**
- *
- * @author marcos
- */
 public class FollowTestsPanelTest extends TestCase {
 
     public FollowTestsPanelTest(String name) {
