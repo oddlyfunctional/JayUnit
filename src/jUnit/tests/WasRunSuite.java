@@ -4,7 +4,7 @@
  */
 package jUnit.tests;
 
-import jUnit.TestSuite;
+import jUnit.framework.TestSuite;
 import java.lang.reflect.InvocationTargetException;
 
 /**

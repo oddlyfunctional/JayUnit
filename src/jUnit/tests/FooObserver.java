@@ -5,7 +5,7 @@
 package jUnit.tests;
 
 import jUnit.Observer;
-import jUnit.TestResult;
+import jUnit.framework.TestResult;
 
 /**
  *

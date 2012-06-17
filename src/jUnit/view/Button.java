@@ -5,22 +5,25 @@
 package jUnit.view;
 
 import jUnit.Command;
-import javax.swing.JLabel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 /**
  *
  * @author marcos
  */
-public class Button extends JLabel {
-    
+public class Button extends JButton implements ActionListener {
+
     private Command command;
 
     public Button(Command command) {
+        super();
         this.command = command;
+        super.addActionListener(this);
     }
-    
-    public void doClick() {
+
+    public void actionPerformed(ActionEvent e) {
         command.execute();
     }
-    
 }

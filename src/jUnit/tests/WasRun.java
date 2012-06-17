@@ -4,7 +4,7 @@
  */
 package jUnit.tests;
 
-import jUnit.TestCase;
+import jUnit.framework.TestCase;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.logging.Level;

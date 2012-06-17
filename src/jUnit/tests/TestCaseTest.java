@@ -4,7 +4,11 @@
  */
 package jUnit.tests;
 
-import jUnit.*;
+import jUnit.framework.TestCase;
+import jUnit.framework.TestResult;
+import jUnit.framework.TestSuite;
+import jUnit.errors.Failure;
+import jUnit.errors.SetUpError;
 import java.util.ArrayList;
 import java.util.List;
 

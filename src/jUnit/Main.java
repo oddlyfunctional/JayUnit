@@ -5,7 +5,7 @@
 
 package jUnit;
 
-import jUnit.tests.WasRun;
+import jUnit.control.Controller;
 
 /**
  *
@@ -14,5 +14,6 @@ import jUnit.tests.WasRun;
 public class Main {
 
     public static void main(String[] args) {
+        Controller.getInstance().runTests();
     }
 }

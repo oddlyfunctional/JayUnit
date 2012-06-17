@@ -4,6 +4,10 @@
  */
 package jUnit.tests;
 
+import jUnit.framework.TestCase;
+import jUnit.framework.TestResult;
+import jUnit.framework.TestSuite;
+import jUnit.model.PersistentTestResultDAO;
 import jUnit.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 

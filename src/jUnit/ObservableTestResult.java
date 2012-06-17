@@ -4,7 +4,7 @@
  */
 package jUnit;
 
-import java.lang.reflect.InvocationTargetException;
+import jUnit.framework.TestResult;
 import java.util.ArrayList;
 import java.util.List;
 

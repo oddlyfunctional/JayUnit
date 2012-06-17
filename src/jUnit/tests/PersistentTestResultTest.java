@@ -4,10 +4,10 @@
  */
 package jUnit.tests;
 
-import jUnit.PersistentTestResult;
-import jUnit.TestCase;
-import jUnit.TestResult;
-import jUnit.TestSuite;
+import jUnit.model.PersistentTestResult;
+import jUnit.framework.TestCase;
+import jUnit.framework.TestResult;
+import jUnit.framework.TestSuite;
 
 /**
  *

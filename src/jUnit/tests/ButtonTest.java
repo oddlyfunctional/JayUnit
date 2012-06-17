@@ -5,8 +5,8 @@
 package jUnit.tests;
 
 import jUnit.Command;
-import jUnit.TestCase;
-import jUnit.TestSuite;
+import jUnit.framework.TestCase;
+import jUnit.framework.TestSuite;
 import jUnit.view.Button;
 
 /**

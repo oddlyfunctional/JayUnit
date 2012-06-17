@@ -4,6 +4,11 @@
  */
 package jUnit.tests;
 
+import jUnit.framework.TestCase;
+import jUnit.framework.TestResult;
+import jUnit.framework.TestSuite;
+import jUnit.model.PersistentTestResult;
+import jUnit.model.PersistentTestResultDAO;
 import jUnit.*;
 import java.util.ArrayList;
 import java.util.List;

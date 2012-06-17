@@ -5,40 +5,50 @@
 package jUnit.view;
 
 import jUnit.Command;
-import jUnit.ObservableTestResult;
-import jUnit.TestSuite;
-import javax.swing.JLabel;
+import jUnit.control.Controller;
+import jUnit.framework.TestSuite;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
 
 /**
  *
  * @author marcos
  */
-public class FollowTestsPanel {
-    
+public class FollowTestsPanel extends JPanel {
+
     private TestSuite suite;
-    private TestResultObserver testResult;
-    private Button runTests;
+    private TestResultView testResultView;
+    private Button runTestsButton;
+    private Button showStatisticsButton;
 
     public FollowTestsPanel(Class testCase) throws Exception {
+        super();
         suite = new TestSuite(testCase);
-        testResult = new TestResultObserver();
-        testResult.setText("0 run, 0 failed");
-        runTests = new Button(new Command() {
-
+        testResultView = new TestResultView();
+        runTestsButton = new Button(new RunTestsCommand(testResultView, suite));
+        runTestsButton.setText("Executar testes");
+        showStatisticsButton = new Button(new Command() {
             public void execute() {
-                ObservableTestResult result = new ObservableTestResult();
-                result.attach(testResult);
-                testResult.setResult(result);
-                suite.run(result);
+                Controller.getInstance().showStatistics();
             }
         });
+        showStatisticsButton.setText("Show Statistics");
+
+        initializeComponents();
     }
 
-    public JLabel getTestResult() {
-        return testResult;
+    private void initializeComponents() {
+        setLayout(new BorderLayout());
+        add(testResultView, BorderLayout.CENTER);
+        add(runTestsButton, BorderLayout.SOUTH);
+        add(showStatisticsButton, BorderLayout.NORTH);
     }
 
-    public Button getRunTests() {
-        return runTests;
+    public TestResultView getTestResult() {
+        return testResultView;
+    }
+
+    public Button getRunTestsButton() {
+        return runTestsButton;
     }
 }

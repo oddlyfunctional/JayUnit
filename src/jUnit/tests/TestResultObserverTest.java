@@ -5,9 +5,9 @@
 package jUnit.tests;
 
 import jUnit.ObservableTestResult;
-import jUnit.TestCase;
-import jUnit.TestSuite;
-import jUnit.view.TestResultObserver;
+import jUnit.framework.TestCase;
+import jUnit.framework.TestSuite;
+import jUnit.view.TestResultView;
 
 /**
  *
@@ -21,7 +21,7 @@ public class TestResultObserverTest extends TestCase {
     
     public void testUpdate() {
         ObservableTestResult result = new ObservableTestResult();
-        TestResultObserver observer = new TestResultObserver(result);
+        TestResultView observer = new TestResultView(result);
         result.attach(observer);
         result.testStarted();
         assertEquals(observer.getText(), result.summary());

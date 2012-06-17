@@ -4,21 +4,26 @@
  */
 package jUnit;
 
+import jUnit.framework.TestComponent;
+import jUnit.framework.TestResult;
+import jUnit.model.PersistentTestResult;
+import jUnit.model.PersistentTestResultDAO;
+
 /**
  *
  * @author marcos
  */
 public class PersistentTestDecorator extends TestComponent {
     
-    private TestCase testCase;
+    private TestComponent testComponent;
     
-    public PersistentTestDecorator(TestCase testCase) {
-        this.testCase = testCase;
+    public PersistentTestDecorator(TestComponent testComponent) {
+        this.testComponent = testComponent;
     }
 
     public void run(TestResult result) {
         long timeBefore = System.nanoTime();
-        testCase.run(result);
+        testComponent.run(result);
         PersistentTestResultDAO.getInstance().insert(new PersistentTestResult(result, System.nanoTime() - timeBefore));
     }
     

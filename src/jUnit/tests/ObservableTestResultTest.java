@@ -6,9 +6,9 @@ package jUnit.tests;
 
 import jUnit.ObservableTestResult;
 import jUnit.Observer;
-import jUnit.TestCase;
-import jUnit.TestResult;
-import jUnit.TestSuite;
+import jUnit.framework.TestCase;
+import jUnit.framework.TestResult;
+import jUnit.framework.TestSuite;
 
 /**
  *
