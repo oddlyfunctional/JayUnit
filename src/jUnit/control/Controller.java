@@ -1,12 +1,11 @@
 package jUnit.control;
 
-import jUnit.FooTest;
+import jUnit.control.commands.GenerateStatisticsCommand;
 import jUnit.model.PersistentTestResult;
 import jUnit.model.PersistentTestResultDAO;
 import jUnit.view.FollowTestsPanel;
 import jUnit.view.MainFrame;
 import jUnit.view.ShowStatisticsPanel;
-import java.util.List;
 
 public class Controller {
 
@@ -48,21 +47,8 @@ public class Controller {
     }
 
     public String testsStatistics() {
-        List<PersistentTestResult> results = PersistentTestResultDAO.getInstance().findAll();
-        float runCount = 0;
-        float errorCount = 0;
-        double executionTime = 0;
-        for (PersistentTestResult result : results) {
-            runCount += result.getRunCount();
-            errorCount += result.getErrorCount();
-            executionTime += result.getExecutionTimeInNanoSecs();
-        }
-        int size = results.size();
-        return String.format("Average\n\n"
-                + "Run: %f\n"
-                + "Errors: %f\n"
-                + "Execution time (in nano secs): %f\n"
-                + "Times run: %d",
-                runCount / size, errorCount / size, executionTime / size, size);
+        GenerateStatisticsCommand statistics = new GenerateStatisticsCommand();
+        statistics.execute();
+        return statistics.getStatistics();
     }
 }

@@ -26,19 +26,9 @@ public class PersistentTestResult {
         return executionTimeInNanoSecs;
     }
 
-    /*
-     * TODO: Modificar para que a condição de igualdade não seja dependente de seus atributos,
-     * pois mais de um TestResult pode ter tido os mesmos resultados.
-     */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof PersistentTestResult) {
-            PersistentTestResult persistentResult = (PersistentTestResult) obj;
-            return persistentResult.getErrorCount() == this.getErrorCount()
-                    && persistentResult.getRunCount() == this.getRunCount()
-                    && persistentResult.getExecutionTimeInNanoSecs() == this.getExecutionTimeInNanoSecs();
-        }
-        return false;
+        return this == obj;
     }
 
     @Override

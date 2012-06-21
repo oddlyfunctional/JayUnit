@@ -1,6 +1,6 @@
 package jUnit.view;
 
-import jUnit.Command;
+import jUnit.control.commands.Command;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;

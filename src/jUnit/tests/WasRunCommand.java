@@ -1,6 +1,6 @@
 package jUnit.tests;
 
-import jUnit.Command;
+import jUnit.control.commands.Command;
 
 public class WasRunCommand implements Command {
 

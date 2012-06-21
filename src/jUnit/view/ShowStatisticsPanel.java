@@ -1,6 +1,6 @@
 package jUnit.view;
 
-import jUnit.Command;
+import jUnit.control.commands.Command;
 import jUnit.control.Controller;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;

@@ -1,6 +1,6 @@
 package jUnit.view;
 
-import jUnit.Command;
+import jUnit.control.commands.Command;
 import jUnit.ObservableTestResult;
 import jUnit.PersistentTestDecorator;
 import jUnit.framework.TestSuite;

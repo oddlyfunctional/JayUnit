@@ -3,6 +3,7 @@ package jUnit.framework;
 import jUnit.errors.Failure;
 import jUnit.errors.SetUpError;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestCase extends TestComponent {
@@ -107,7 +108,19 @@ public class TestCase extends TestComponent {
         return true;
     }
 
+    public boolean assertArrayEquals(Object[] actualValue, Object[] expectation) {
+        return assertArrayEquals(arrayToList(actualValue), arrayToList(expectation));
+    }
+
     private String equalityErrorMessage(Object expectation, Object actualValue) {
         return "Expected <" + expectation + "," + expectation.getClass().getSimpleName() + "> but it was <" + actualValue + "," + expectation.getClass().getSimpleName() + ">";
+    }
+
+    private List arrayToList(Object[] array) {
+        List list = new ArrayList();
+        for (Object obj : array) {
+            list.add(obj);
+        }
+        return list;
     }
 }

@@ -1,4 +1,4 @@
-package jUnit;
+package jUnit.control.commands;
 
 public interface Command {
 
