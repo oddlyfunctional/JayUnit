@@ -1,12 +1,13 @@
 package jUnit.framework;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TestResult {
 
     private int runCount;
     private int errorCount;
-    private ArrayList<String> errorCauses;
+    private List<String> errorCauses;
 
     public TestResult() {
         this.runCount = 0;

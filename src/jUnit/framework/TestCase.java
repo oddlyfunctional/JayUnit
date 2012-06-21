@@ -8,10 +8,10 @@ import java.util.List;
 
 public class TestCase extends TestComponent {
 
-    protected String name;
+    protected String methodName;
 
     public TestCase(String name) {
-        this.name = name;
+        this.methodName = name;
     }
 
     protected void setUp() {
@@ -28,12 +28,12 @@ public class TestCase extends TestComponent {
             throw new SetUpError(t);
         }
         try {
-            Method method = this.getClass().getMethod(name);
+            Method method = this.getClass().getMethod(methodName);
             method.invoke(this);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (Exception e) {
-            String message = this.getClass().getName() + "." + this.name + " - ";
+            String message = this.getClass().getName() + "." + this.methodName + " - ";
             Throwable cause = e.getCause();
             if (cause.getMessage() == null) {
                 result.addErrorCause(message + cause.getClass().getName());
