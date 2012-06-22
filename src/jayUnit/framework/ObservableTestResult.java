@@ -1,6 +1,5 @@
 package jayUnit.framework;
 
-import jayUnit.framework.TestResult;
 import java.util.ArrayList;
 import java.util.List;
 

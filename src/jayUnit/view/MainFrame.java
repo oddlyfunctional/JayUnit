@@ -1,6 +1,7 @@
 package jayUnit.view;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JComponent;
@@ -24,6 +25,14 @@ public class MainFrame extends JFrame {
         getContentPane().add(component, layoutConstraint);
         validate();
         repaint();
+    }
+
+    @Override
+    public void setEnabled(boolean b) {
+        super.setEnabled(b);
+        for(Component c : getContentPane().getComponents()) {
+            c.setEnabled(b);
+        }
     }
 
     private void centralize() {

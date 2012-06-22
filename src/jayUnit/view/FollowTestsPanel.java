@@ -37,6 +37,12 @@ public class FollowTestsPanel extends JPanel {
         add(showStatisticsButton, BorderLayout.NORTH);
     }
 
+    @Override
+    public void setEnabled(boolean enabled) {
+        runTestsButton.setEnabled(enabled);
+        showStatisticsButton.setEnabled(enabled);
+    }
+
     public TestResultView getTestResult() {
         return testResultView;
     }

@@ -16,8 +16,16 @@ public class RunTestsCommand implements Command {
     }
 
     public void execute() {
-        ObservableTestResult result = new ObservableTestResult();
+        final ObservableTestResult result = new ObservableTestResult();
         testResult.setResult(result);
-        new PersistentTestDecorator(suite).run(result);
+        testResult.getParent().setEnabled(false);
+        new Thread() {
+
+            @Override
+            public void run() {
+                new PersistentTestDecorator(suite).run(result);
+                testResult.getParent().setEnabled(true);
+            }
+        }.start();
     }
 }
